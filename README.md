@@ -26,7 +26,7 @@ I'm a self-taught passionate Web Developer from Indonesia 🇮🇩.
 
 #### Top Repositories
 
-<a href="https://github.com/WahyuSapurata/github-readme-stats">
+<a href="https://github.com/WahyuSapurata/sosial-link-react-js">
   <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=WahyuSapurata&repo=github-readme-stats&theme=buefy" />
 </a>
 <a href="https://github.com/WahyuSapurata/WahyuSapurata.github.io">
