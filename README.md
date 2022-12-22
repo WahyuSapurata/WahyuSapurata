@@ -27,7 +27,7 @@ I'm a self-taught passionate Web Developer from Indonesia 🇮🇩.
 #### Top Repositories
 
 <a href="https://github.com/WahyuSapurata/sosial-link-react-js">
-  <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=WahyuSapurata&repo=github-readme-stats&theme=buefy" />
+  <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=WahyuSapurata&repo=sosial-link-react-js&theme=buefy" />
 </a>
 <a href="https://github.com/WahyuSapurata/WahyuSapurata.github.io">
   <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=WahyuSapurata&repo=WahyuSapurata.github.io&theme=buefy" />
@@ -37,8 +37,8 @@ I'm a self-taught passionate Web Developer from Indonesia 🇮🇩.
 <br />
 
 <a href="https://twitter.com/anuraghazru">
-  <img align="right" alt="Anurag Hazra | Twitter" width="21px" src="https://raw.githubusercontent.com/WahyuSapurata/WahyuSapurata/master/assets/twitter.svg" />
+  <img align="right" alt="Wahyuhidayat | Twitter" width="21px" src="https://raw.githubusercontent.com/WahyuSapurata/WahyuSapurata/master/assets/twitter.svg" />
 </a>
 <a href="https://codesandbox.io/u/WahyuSapurata">
-  <img align="right" alt="Anurag Hazra | CodeSandbox" width="20px" src="https://raw.githubusercontent.com/WahyuSapurata/WahyuSapurata/master/assets/codesandbox.svg" />
+  <img align="right" alt="Wahyuhidayat | CodeSandbox" width="20px" src="https://raw.githubusercontent.com/WahyuSapurata/WahyuSapurata/master/assets/codesandbox.svg" />
 </a>
