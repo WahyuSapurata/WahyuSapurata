@@ -1,8 +1,9 @@
-<p align="center"><a href="https://WahyuSapurata.github.io"><img width="80%" alt="Hello, I'm Wahyhidayat. I do open source!" src="./assets/gh-readme-header.png" /></a></p>
+<p align="center"><a href="https://WahyuSapurata.github.io"><img width="10%" alt="Hello, I'm Wahyhidayat. I do open source!" src="./assets/SA_Logo.png" /></a></p>
 
 <br />
 
-I'm a self-taught passionate FrontEnd developer from Indonesia 🇮🇩.
+I'a Wahyuhidayat
+I'm a self-taught passionate Web Developer from Indonesia 🇮🇩.
 
 **About me**
 
