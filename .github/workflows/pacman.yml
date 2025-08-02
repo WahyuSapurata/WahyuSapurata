@@ -1,9 +1,11 @@
 name: Generate pacman animation
 
 on:
-  schedule:
+  schedule: # jalan setiap 12 jam
     - cron: "0 */12 * * *"
+
   workflow_dispatch:
+
   push:
     branches:
       - main
@@ -23,14 +25,19 @@ jobs:
         uses: abozanona/pacman-contribution-graph@main
         with:
           github_user_name: ${{ github.repository_owner }}
-          github_token: ${{ secrets.GH_TOKEN }}
+          github_token: ${{ secrets.GH_TOKEN }} # <- pastikan sudah dibuat di Settings > Secrets
 
-      - name: Tampilkan semua file SVG yang ada
+      - name: Debug - cari file SVG yang dihasilkan
         run: |
-          echo "🎯 File SVG ditemukan:"
-          find ./dist -name "*.svg"
+          echo "🎯 Mencari file SVG..."
+          find . -name "*.svg"
 
-      - name: Push semua file ke branch output
+      - name: Pindahkan hasil ke folder dist
+        run: |
+          mkdir -p dist
+          cp pacman-contribution-graph.svg dist/pacman.svg
+
+      - name: Push pacman.svg ke branch output
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
           target_branch: output
