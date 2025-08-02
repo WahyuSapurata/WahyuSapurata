@@ -25,12 +25,11 @@ jobs:
           github_user_name: ${{ github.repository_owner }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Debug — tampilkan file SVG
-        run: find dist -type f -name '*.svg'
-
-      - name: Cek isi folder dist sebelum push
+      - name: Tampilkan file SVG
         run: |
-          echo "📂 Isi folder dist:"
+          echo "🔍 SVG files generated:"
+          find dist -type f -name '*.svg'
+          echo "📂 Folder dist:"
           ls -lh dist
 
       - name: Push hasil ke branch output
@@ -40,4 +39,3 @@ jobs:
           build_dir: dist
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
