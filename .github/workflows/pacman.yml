@@ -1,7 +1,7 @@
 name: Generate pacman animation
 
 on:
-  schedule: # execute every 12 hours
+  schedule: # jalan setiap 12 jam
     - cron: "0 */12 * * *"
 
   workflow_dispatch:
@@ -26,12 +26,12 @@ jobs:
         with:
           github_user_name: ${{ github.repository_owner }}
 
-      - name: Move output to dist folder
+      - name: Pindahkan hasil ke folder dist
         run: |
           mkdir -p dist
           mv pacman-contribution-graph.svg dist/pacman.svg
 
-      - name: Push pacman.svg to the output branch
+      - name: Push pacman.svg ke branch output
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
           target_branch: output
