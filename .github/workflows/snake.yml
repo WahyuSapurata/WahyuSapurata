@@ -1,7 +1,7 @@
 name: Generate snake animation
 
 on:
-  schedule: # setiap 12 jam
+  schedule:
     - cron: "0 */12 * * *"
   workflow_dispatch:
   push:
@@ -22,17 +22,17 @@ jobs:
           github_user_name: ${{ github.repository_owner }}
           outputs: dist/snake.svg
 
-      - name: Keep existing files (fetch output branch)
+      - name: Checkout output branch if exists
         run: |
-          git fetch origin output:output || echo "No output branch yet"
+          git fetch origin output || echo "No output branch yet"
+          git checkout -b output origin/output || git checkout --orphan output
           mkdir -p old_output
-          git --work-tree=old_output checkout output || echo "Nothing to restore"
+          cp -r . old_output || true
 
-      - name: Copy existing files except snake.svg
+      - name: Restore previous files to dist
         run: |
           mkdir -p dist
-          cp -r old_output/* dist/ || true
-          cp dist/snake.svg dist/snake.svg  # pastikan snake terbaru ditimpa
+          cp -r old_output/* dist/ || echo "No previous files to copy"
 
       - name: Push dist/ to output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
