@@ -1,4 +1,4 @@
-name: Generate snake animation
+name: Generate snake and pacman animations
 
 on:
   schedule:
@@ -10,9 +10,9 @@ on:
 
 jobs:
   generate:
+    runs-on: ubuntu-latest
     permissions:
       contents: write
-    runs-on: ubuntu-latest
     timeout-minutes: 5
 
     steps:
@@ -22,24 +22,22 @@ jobs:
           github_user_name: ${{ github.repository_owner }}
           outputs: dist/snake.svg
 
-      - name: Checkout output branch if exists
-        run: |
-          git fetch origin output || echo "No output branch yet"
-          git checkout -b output origin/output || git checkout --orphan output
-          mkdir -p old_output
-          cp -r . old_output || true
+      - name: Generate pacman.svg
+        uses: abozanona/pacman-contribution-graph@main
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Restore previous files to dist
+      - name: Rename pacman output
         run: |
           mkdir -p dist
-          cp -r old_output/* dist/ || echo "No previous files to copy"
+          mv pacman-contribution-graph.svg dist/pacman.svg
+          mv pacman-contribution-graph-dark.svg dist/pacman-dark.svg
 
       - name: Push dist/ to output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
           target_branch: output
           build_dir: dist
-          keep_history: true
-          allow_empty_commit: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
