@@ -16,19 +16,19 @@ jobs:
       contents: write
 
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Generate SVG
+      - name: Generate Pacman contribution graph
         uses: abozanona/pacman-contribution-graph@main
         with:
           github_user_name: ${{ github.repository_owner }}
-          github_token: ${{ secrets.GH_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Debug — tampilkan file SVG
         run: find dist -type f -name '*.svg'
 
-      - name: Push ke branch output
+      - name: Push hasil ke branch output
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
           target_branch: output
