@@ -23,6 +23,7 @@ jobs:
         uses: abozanona/pacman-contribution-graph@main
         with:
           github_user_name: ${{ github.repository_owner }}
+          github_token: ${{ secrets.GH_TOKEN }}
 
       - name: Tampilkan semua file SVG yang ada
         run: |
