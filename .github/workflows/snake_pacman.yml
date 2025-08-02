@@ -30,9 +30,8 @@ jobs:
 
       - name: Rename pacman output
         run: |
-          mkdir -p dist
-          mv pacman-contribution-graph.svg dist/pacman.svg
-          mv pacman-contribution-graph-dark.svg dist/pacman-dark.svg
+          mv dist/pacman-contribution-graph.svg dist/pacman.svg
+          mv dist/pacman-contribution-graph-dark.svg dist/pacman-dark.svg
 
       - name: Push dist/ to output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
