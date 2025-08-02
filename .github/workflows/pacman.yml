@@ -26,15 +26,10 @@ jobs:
 
       - name: Tampilkan semua file SVG yang ada
         run: |
-          echo "🎯 Mencari file SVG..."
-          find . -name "*.svg"
+          echo "🎯 File SVG ditemukan:"
+          find ./dist -name "*.svg"
 
-      - name: Pindahkan hasil ke folder dist
-        run: |
-          mkdir -p dist
-          mv pacman-contribution-graph.svg dist/pacman.svg
-
-      - name: Push pacman.svg ke branch output
+      - name: Push semua file ke branch output
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
           target_branch: output
