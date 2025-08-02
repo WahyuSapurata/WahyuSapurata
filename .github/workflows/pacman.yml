@@ -1,11 +1,9 @@
 name: Generate pacman animation
 
 on:
-  schedule: # jalan setiap 12 jam
+  schedule:
     - cron: "0 */12 * * *"
-
   workflow_dispatch:
-
   push:
     branches:
       - main
@@ -25,6 +23,9 @@ jobs:
         uses: abozanona/pacman-contribution-graph@main
         with:
           github_user_name: ${{ github.repository_owner }}
+
+      - name: Cek isi direktori setelah generate
+        run: ls -lah
 
       - name: Pindahkan hasil ke folder dist
         run: |
