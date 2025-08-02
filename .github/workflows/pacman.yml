@@ -25,9 +25,9 @@ jobs:
           github_user_name: ${{ github.repository_owner }}
 
       - name: Tampilkan semua file SVG yang ada
-  run: |
-    echo "🎯 Mencari file SVG..."
-    find . -name "*.svg"
+        run: |
+          echo "🎯 Mencari file SVG..."
+          find . -name "*.svg"
 
       - name: Pindahkan hasil ke folder dist
         run: |
