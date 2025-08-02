@@ -1,14 +1,12 @@
 name: Generate snake animation
 
 on:
-  schedule: # execute every 12 hours
-    - cron: "* */12 * * *"
-
+  schedule: # setiap 12 jam
+    - cron: "0 */12 * * *"
   workflow_dispatch:
-
   push:
     branches:
-    - main
+      - main
 
 jobs:
   generate:
@@ -18,17 +16,30 @@ jobs:
     timeout-minutes: 5
 
     steps:
-      - name: generate snake.svg
+      - name: Generate snake.svg
         uses: Platane/snk/svg-only@v3
         with:
           github_user_name: ${{ github.repository_owner }}
-          outputs: dist/snake.svg?palette=github-dark
+          outputs: dist/snake.svg
 
+      - name: Keep existing files (fetch output branch)
+        run: |
+          git fetch origin output:output || echo "No output branch yet"
+          mkdir -p old_output
+          git --work-tree=old_output checkout output || echo "Nothing to restore"
 
-      - name: push snake.svg to the output branch
+      - name: Copy existing files except snake.svg
+        run: |
+          mkdir -p dist
+          cp -r old_output/* dist/ || true
+          cp dist/snake.svg dist/snake.svg  # pastikan snake terbaru ditimpa
+
+      - name: Push dist/ to output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
           target_branch: output
           build_dir: dist
+          keep_history: true
+          allow_empty_commit: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
